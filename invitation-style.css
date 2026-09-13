@@ -1,0 +1,484 @@
+/* --- General Styling & Fonts --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background-color: #000;
+    scroll-behavior: smooth;
+    position: relative; /* For the background wrapper */
+}
+
+/* --- Background Slideshow for Scrollable Page --- */
+.background-slider-wrapper {
+    position: fixed; /* Fixed position so it doesn't scroll with content */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Behind the overlay and content */
+}
+
+.background-slider-invitation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover; /* Default for mobile and smaller screens */
+    background-position: center;
+    transition: opacity 2s ease-in-out;
+    opacity: 0;
+}
+
+.background-slider-invitation.active {
+    opacity: 1;
+}
+
+/* --- Content Wrapper & Overlay --- */
+.invitation-content-wrapper {
+    position: relative;
+    z-index: 10; /* Di atas overlay */
+    overflow-y: auto; /* Tambahkan scrollbar internal jika konten melebihi tinggi layar */
+    max-height: 100vh; /* Batasi tinggi wrapper agar tidak melebihi layar */
+    width: 100vw; /* Memastikan lebar penuh */
+}
+
+.overlay {
+    position: fixed; /* Pastikan ini 'fixed' agar tidak ikut scroll */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); /* Opacity ditingkatkan agar lebih gelap */
+    z-index: 0; /* Di atas background-slider-wrapper, di bawah invitation-content-wrapper */
+}
+
+/* --- Sections --- */
+.invitation-section {
+    position: relative;
+    min-height: 100vh; /* Each section takes up at least the full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+    box-sizing: border-box;
+}
+
+.section-content {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* --- Intro Section (First Page) --- */
+#intro {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+    box-sizing: border-box;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.text-intro {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+/* Couple Photo Styling */
+.couple-photo {
+    position: relative;
+    width: 250px;
+    height: 350px;
+    margin: 15px auto;
+    border-radius: 30px;
+    overflow: hidden;
+    border: 3px solid gold;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeInScale 1s ease-out 1s forwards;
+}
+
+.couple-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Animation for the photo to appear */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.couple-names-main {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    line-height: 1;
+    margin: 15px 0;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.countdown-container { margin-top: 40px; }
+.countdown-label { font-size: 1rem; font-weight: 300; margin-bottom: 10px; }
+.countdown-timer { display: flex; justify-content: center; gap: 20px; }
+.countdown-item { font-size: 1.5rem; font-weight: 600; }
+.countdown-item span { font-size: 3rem; font-weight: 700; color: gold; }
+
+.event-details-intro { margin-top: 30px; font-size: 1.5rem; }
+.details-date { font-weight: 600; }
+
+/* --- Opening Verse Section --- */
+.opening-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 40px; }
+.ornament-divider { width: 100px; height: 1px; background-color: gold; margin: 0 auto 40px; }
+
+/* --- Couple Photos (Individual Profiles) --- */
+.couple-photos { display: flex; justify-content: center; align-items: center; gap: 50px; flex-wrap: wrap; }
+.person-card { flex-basis: 250px; display: flex; flex-direction: column; align-items: center; }
+.profile-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 4px solid gold;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(255,215,0,0.3);
+}
+.person-name { font-family: 'Great Vibes', cursive; font-size: 2.5rem; margin: 15px 0 5px; }
+.family-of { font-size: 0.9rem; font-style: italic; opacity: 0.8; }
+.and-symbol { font-family: 'Great Vibes', cursive; font-size: 3rem; color: gold; margin-top: 50px; }
+
+/* --- Save The Date Section --- */
+.date-time-card {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+.date-time-card h4 { font-size: 1.8rem; font-weight: 700; color: gold; margin: 0 0 10px; }
+.calendar-button, .google-maps-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 25px;
+    background-color: gold;
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+.calendar-button:hover { background-color: #ffc400; }
+
+/* --- Reception & Ngunduh Mantu Sections --- */
+.reception-details p { margin: 5px 0; }
+.reception-details .date-time { font-size: 1.3rem; font-weight: 600; }
+.reception-details .location-name { font-size: 1.5rem; font-weight: 700; color: gold; }
+.reception-details .address { font-size: 1rem; opacity: 0.9; }
+
+/* --- Our Story Section --- */
+.story-timeline { display: flex; flex-direction: column; align-items: center; gap: 50px; margin-top: 50px; }
+.timeline-item { max-width: 500px; text-align: left; }
+.timeline-date { font-size: 1.5rem; font-weight: 700; color: gold; margin-bottom: 15px; }
+.story-photo { width: 100%; height: 300px; object-fit: cover; border-radius: 15px; border: 3px solid #fff; }
+.timeline-description { margin-top: 15px; line-height: 1.6; }
+
+/* --- Gallery Section --- */
+.photo-gallery-slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.gallery-slide {
+    display: none;
+    animation: fadeIn 1s ease-in-out;
+}
+.gallery-slide.active {
+    display: block;
+}
+.gallery-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+#prev-slide { left: 10px; }
+#next-slide { right: 10px; }
+.gallery-nav:hover { background-color: rgba(0,0,0,0.8); }
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    margin-top: 20px;
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* --- Konfirmasi Kehadiran (RSVP) Section Styling --- */
+.rsvp-form-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    margin: 30px auto; /* Menambahkan margin auto untuk centering */
+}
+
+.rsvp-form-container input[type="text"],
+.rsvp-form-container input[type="number"],
+.rsvp-form-container textarea {
+    width: calc(100% - 20px);
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.rsvp-form-container textarea.optional-field {
+    min-height: 80px;
+}
+
+.rsvp-form-container input::placeholder,
+.rsvp-form-container textarea::placeholder {
+    color: #ccc;
+}
+
+.rsvp-form-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.attendance-options {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.attendance-options .radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.attendance-options input[type="radio"] {
+    display: none;
+}
+
+.attendance-options input[type="radio"] + label {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    border: 1px solid transparent;
+    font-weight: 400;
+}
+
+.attendance-options input[type="radio"]:checked + label {
+    background-color: gold;
+    color: #000;
+    border-color: gold;
+    font-weight: 600;
+}
+
+.guests-count {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.guests-count input[type="number"] {
+    width: 80px;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Tombol Kirim Konfirmasi */
+#kirimRsvpButton {
+    width: 100%;
+    padding: 15px;
+    background-color: gold;
+    color: #000;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+#kirimRsvpButton:hover {
+    background-color: #ffc400;
+}
+
+.gift-section { margin-top: 50px; }
+.bank-account {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.copy-button {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.copy-button:hover { background-color: #555; }
+
+/* Multiple bank accounts styling */
+#bankAccountsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* --- Closing Section --- */
+.closing-text-main { font-size: 1.1rem; margin-bottom: 30px; }
+.closing-greeting { font-size: 1.2rem; font-weight: 400; }
+.closing-couple-names { font-family: 'Great Vibes', cursive; font-size: 4rem; line-height: 1; }
+
+/* --- Scroll Animation (Animate on Scroll) --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+.animate-on-scroll .left-animate {
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.animate-on-scroll .right-animate {
+    transform: translateX(100px);
+    opacity: 0;
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.animate-on-scroll.in-view .left-animate,
+.animate-on-scroll.in-view .right-animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- Responsive Design (Mobile First) --- */
+@media (max-width: 768px) {
+    .couple-names-main { font-size: 3.5rem; }
+    .couple-photos { flex-direction: column; }
+    .and-symbol { margin-top: 20px; margin-bottom: 20px; }
+    .couple-photo {
+        width: 200px;
+        height: 280px;
+    }
+}
+
+/* Untuk layar desktop (min-width disesuaikan) */
+@media (min-width: 992px) { /* Ini adalah breakpoint umum untuk desktop */
+    .background-slider-invitation {
+        background-size: auto 100vh;
+        background-position: center center;
+    }
+}
+
+/* --- Corner Ornaments (Tambahan untuk bingkai pojok) --- */
+.ornament {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    z-index: 100;
+}
+.top-left {
+    top: 20px;
+    left: 20px;
+    transform: rotate(180deg);
+}
+.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    transform: rotate(0deg);
+}
+
+.ornament svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: gold;
+    stroke-width: 1px;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: drawOrnament 4s ease-out forwards;
+}
+@keyframes drawOrnament {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Penyesuaian ukuran bingkai untuk perangkat mobile */
+@media (max-width: 768px) {
+    .ornament {
+        width: 70px;
+        height: 70px;
+    }
+}

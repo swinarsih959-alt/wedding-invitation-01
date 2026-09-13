@@ -1,0 +1,216 @@
+/* --- Global & Layout --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Prevent scrollbar */
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background-color: #333;
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* --- Background Image Slideshow --- */
+.background-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover; /* Default for mobile and smaller screens */
+    background-position: center;
+    transition: opacity 2s ease-in-out; /* Smooth transition */
+    opacity: 0; /* Initially hidden */
+    z-index: 1;
+}
+
+.background-slider.active {
+    opacity: 1;
+}
+
+/* --- Overlay & Content --- */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 2;
+}
+
+.content {
+    position: relative;
+    z-index: 3;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* --- Text Styling --- */
+.greeting-text {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 10px; /* Nilai ini memberi jarak ke bawah */
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInSlideUp 1s ease-out 0.5s forwards;
+}
+
+.couple-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInSlideUp 1s ease-out 1s forwards;
+}
+
+.to-text {
+    font-size: 1rem;
+    margin-top: 50px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInSlideUp 1s ease-out 1.5s forwards;
+}
+
+.guest-name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: -10px;
+    text-transform: capitalize;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInSlideUp 1s ease-out 2s forwards;
+}
+
+/* --- Button --- */
+.open-button {
+    margin-top: 40px;
+    padding: 15px 30px;
+    border-radius: 50px;
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 1s ease-out 2.5s forwards;
+}
+
+.open-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.open-button svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+}
+
+/* --- Animations --- */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Particle Animation --- */
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 4;
+}
+
+.particle {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-10vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(110vh) translateX(20vw) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+/* --- Corner Ornaments --- */
+.ornament {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    z-index: 5;
+}
+.top-left {
+    top: 20px;
+    left: 20px;
+    transform: rotate(180deg);
+}
+.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    transform: rotate(0deg);
+}
+
+.ornament svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: gold;
+    stroke-width: 1px;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: drawOrnament 4s ease-out forwards;
+}
+@keyframes drawOrnament {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* --- Untuk layar desktop (min-width disesuaikan) --- */
+@media (min-width: 992px) { /* Ini adalah breakpoint umum untuk desktop */
+    .background-slider {
+        background-size: auto 100vh; /* Lebar otomatis, tinggi 100% dari viewport height */
+        background-position: center center; /* Pastikan tetap di tengah */
+    }
+}

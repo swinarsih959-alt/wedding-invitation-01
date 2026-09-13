@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="invitation-style.css">
+
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body>
+
+    <div class="overlay"></div>
+
+    <audio id="wedding-music" loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="background-slider-wrapper">
+        </div>
+    
+    <div class="ornament top-left">
+        <svg viewBox="0 0 100 100">
+            <path d="M 0 100 C 0 70 30 70 50 50 C 70 30 70 0 100 0"/>
+        </svg>
+    </div>
+    <div class="ornament bottom-right">
+        <svg viewBox="0 0 100 100">
+            <path d="M 0 100 C 0 70 30 70 50 50 C 70 30 70 0 100 0"/>
+        </svg>
+    </div>
+
+    <div class="invitation-content-wrapper">
+        <section id="intro" class="invitation-section active">
+            <div class="section-content fade-in">
+                <div class="text-intro">The Wedding Of</div>
+                
+                <div class="couple-photo">
+                    <img id="coupleIntroPhoto" alt="<span id="introCoupleAlt"></span>">
+                </div>
+                
+                <h1 class="couple-names-main" id="introCoupleNames"></h1>
+                <div class="tagline">akan menyelenggarakan acara pernikahan</div>
+                
+                <div class="countdown-container">
+                    <div class="countdown-label">Akan dimulai dalam:</div>
+                    <div id="countdown" class="countdown-timer">
+                        <div class="countdown-item"><span id="days">00</span><br>Hari</div>
+                        <div class="countdown-item"><span id="hours">00</span><br>Jam</div>
+                        <div class="countdown-item"><span id="minutes">00</span><br>Menit</div>
+                        <div class="countdown-item"><span id="seconds">00</span><br>Detik</div>
+                    </div>
+                </div>
+                <div class="event-details-intro">
+                    <div class="details-label">Pada:</div>
+                    <div class="details-date" id="introEventDate"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="opening-verse" class="invitation-section">
+            <div class="section-content animate-on-scroll">
+                <div class="ornament-divider"></div>
+                <div class="opening-text">
+                    <p>Bismillahirrahmanirrahim</p>
+                    <p>Assalamualaikum Warahmatullahi Wabarakatuh</p>
+                    <p>Dengan segala kerendahan hati, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri pernikahan kami,</p>
+                </div>
+                <div class="couple-photos">
+                    <div class="person-card left-animate">
+                        <img id="brideProfilePhoto" alt="Foto Pengantin Wanita" class="profile-photo">
+                        <h3 class="person-name" id="brideName"></h3>
+                        <p class="family-of">Putri dari Bapak <span id="brideFather"></span> & Ibu <span id="brideMother"></span></p>
+                    </div>
+                    <div class="and-symbol">&</div>
+                    <div class="person-card right-animate">
+                        <img id="groomProfilePhoto" alt="Foto Pengantin Pria" class="profile-photo">
+                        <h3 class="person-name" id="groomName"></h3>
+                        <p class="family-of">Putra dari Bapak <span id="groomFather"></span> & Ibu <span id="groomMother"></span></p>
+                    </div>
+                </div>
+                <div class="closing-text">
+                    <p>Kami sangat berharap Bapak/Ibu/Saudara/i dapat menghadiri acara tersebut</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="save-the-date" class="invitation-section">
+            <div class="section-content animate-on-scroll">
+                <div class="ornament-divider"></div>
+                <h2>Save The Date</h2>
+                <h3>Waktu & Tempat</h3>
+                <div class="date-time-card left-animate">
+                    <h4>Akad Nikah</h4>
+                    <p id="akadDate"></p>
+                    <p id="akadTime"></p>
+                    <p id="akadLocation"></p>
+                </div>
+                <a href="#" id="akadCalendarButton" class="calendar-button right-animate">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" width="24px" height="24px"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 17H5V8h14v12zm0-12H5V5h14v3zm-7 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-3 5h6v-2H9v2zm0-8h6v-2H9v2z"/></svg>
+                    Atur Pengingat Google Calendar
+                </a>
+            </div>
+        </section>
+
+        <section id="reception" class="invitation-section">
+            <div class="section-content animate-on-scroll">
+                <div class="ornament-divider"></div>
+                <h2>Resepsi</h2>
+                <div class="reception-details">
+                    <p class="date-time" id="resepsiDateTime"></p>
+                    <p class="location-name" id="resepsiLocationName"></p>
+                    <p class="address" id="resepsiAddress"></p>
+                    <a href="#" id="resepsiMapButton" target="_blank" class="google-maps-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" width="24px" height="24px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        Lihat Lokasi di Google Maps
+                    </a>
+                </div>
+            </div>
+        </section>
+
+               <section id="gallery" class="invitation-section">
+            <div class="section-content animate-on-scroll">
+                <div class="ornament-divider"></div>
+                <h2>Our Gallery</h2>
+                <div class="photo-gallery-slider" id="gallerySlider">
+                    </div>
+                <button id="prev-slide" class="gallery-nav"><</button>
+                <button id="next-slide" class="gallery-nav">></button>
+                
+                
+            </div>
+        </section>
+
+        <section id="rsvp" class="invitation-section">
+            <div class="section-content animate-on-scroll">
+                <div class="ornament-divider"></div>
+                <h2>Kirim Pesan</h2>
+                <p>Mohon sampaikan pesan atau doa terbaik Anda untuk kami.</p>
+                
+                <div class="rsvp-form-container">
+                    <form id="rsvpForm"> 
+                        <input type="text" id="rsvp-nama" name="namaLengkap" placeholder="Nama Lengkap Anda" required>
+                        <textarea id="rsvp-pesan" name="pesanTambahan" rows="5" placeholder="Pesan atau doa untuk pengantin" class="optional-field"></textarea>
+        
+                        <button type="button" id="kirimRsvpButton">Kirim Pesan via WhatsApp</button>
+                    </form>
+                </div>
+                
+                <div class="gift-section" style="margin-top: 50px;">
+                    <h3>Hadiah</h3>
+                    <p>Bagi yang ingin memberikan hadiah, silakan mengirimkan melalui rekening berikut:</p>
+                    <div id="bankAccountsContainer">
+                        <!-- Rekening bank akan digenerate secara dinamis -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="closing" class="invitation-section">
+            <div class="section-content animate-on-scroll">
+                <div class="ornament-divider"></div>
+                <div class="closing-text-main">
+                    <p>Atas kehadiran dan doa restu Bapak/Ibu/Saudara/i,</p>
+                    <p>kami ucapkan terima kasih.</p>
+                </div>
+                <h3 class="closing-greeting">Hormat Kami,</h3>
+                <h1 class="closing-couple-names" id="closingCoupleNames"></h1>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="config.js"></script>
+    <script src="invitation-script.js"></script>
+</body>
+</html>
