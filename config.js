@@ -46,7 +46,7 @@ const weddingConfig = {
     },
     // --- KONFIGURASI GAMBAR --- 
     images: {
-        coupleIntro: 'assets/cp1.jpeg', // Foto pasangan di intro invitation.html
+        coupleIntro: 'cp1.jpeg', // Foto pasangan di intro invitation.html
         brideProfile: 'assets/per1.jpeg', // Foto profil pengantin wanita
         groomProfile: 'assets/laki1.jpeg', // Foto profil pengantin pria
         story: [ // Daftar foto story - TAMBAH/KURANGI FOTO DI SINI SAJA
@@ -54,8 +54,8 @@ const weddingConfig = {
             'assets/story2.jpg'
         ],
         gallery: [ // Daftar foto galeri - TAMBAH/KURANGI FOTO DI SINI SAJA
-            'assets/cp1.jpeg',
-            'assets/cp2.jpeg',
+            'cp1.jpeg',
+            'cp2.jpeg',
             'assets/cp3.jpeg',
             'assets/cp4.jpeg'
         ],
